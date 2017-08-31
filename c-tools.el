@@ -47,10 +47,11 @@
   (message "Enlarging window horizontally %d times." rw-multiplier)
   (enlarge-window-horizontally rw-multiplier))
 
+;; The custom keymap used
 (defvar resize-window-mode-map
   (let ((map (make-sparse-keymap))
 	(current nil))
-    
+    ;; Enable default keys if the user allows
     (when rw-enable-default-keys
       ;; Add default vertical enlarge keys
       (add-to-list 'rw-enlarge-vertically-keys "<up>")
@@ -92,6 +93,16 @@
     
     map)
   "The resize-window-mode keymap.")
+
+;; The actual mode
+(define-minor-mode resize-window-mode
+  nil
+  nil
+  resize-window-mode-map
+  "Toggle window resize mode.")
+
+;; END resize-window-mode
+;; ======================================================================
 
 (provide 'c-tools)
 ;;; c-tools ends here
