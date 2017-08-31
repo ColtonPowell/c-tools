@@ -1,7 +1,7 @@
 # c-tools
 c-tools is a collection of handy emacs things that may or may not make you a more productive programmer.
 
-### Installation
+## Installation
 1. Clone the repo:
 `git clone https://github.com/ColtonPowell/ctools.git`
 
@@ -12,7 +12,7 @@ c-tools is a collection of handy emacs things that may or may not make you a mor
 ```
 
 3. (Optional) Setup:
-###### resize-window-mode
+##### resize-window-mode
   - Default keys are:
     - `C-p` and `<up>` (up arrow) to enlarge your current window vertically.
     - `C-n` and `<down>` to shrink your current window vertically.
