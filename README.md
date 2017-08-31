@@ -3,7 +3,7 @@ c-tools is a collection of handy emacs things that may or may not make you a mor
 
 ### Installation
 1. Clone the repo:
-`git clone https://github.com/ColtonPowell/ctools.git`
+`git clone https://github.com/ColtonPowell/c-tools.git`
 
 2. Add the following lines to your .emacs file:
 ```
