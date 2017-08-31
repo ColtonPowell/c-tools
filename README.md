@@ -1,7 +1,7 @@
 # c-tools
 c-tools is a collection of handy emacs things that may or may not make you a more productive programmer.
 
-## Installation
+### Installation
 1. Clone the repo:
 `git clone https://github.com/ColtonPowell/ctools.git`
 
