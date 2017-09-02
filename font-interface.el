@@ -34,7 +34,17 @@
   "An interactive function that lets you get to setting your font
 family quicker."
   (interactive "MEnter a font family:")
-  ;; if font-family-list contains font-family:
+  ;; store font family and match-found as nil
+  (let ((val (font-family-list))
+	(match-found nil))
+    ;; should break if match-found
+    (while val
+      (if (string= font-family (car val))
+	  (setq match-found t))
+      (setq val (cdr val))
+      )
+    )
+  ;; if match-found
   (set-face-attribute 'default nil
 		      :family font-family)
   )
