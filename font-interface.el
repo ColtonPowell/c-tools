@@ -27,6 +27,19 @@
     )
   )
 
+;; TODO:
+;; - Throw errors if font-family is not a valid font
+;;   > Can use font-family-list to get all fonts, then parse
+(defun set-font-family (font-family)
+  "An interactive function that lets you get to setting your font
+family quicker."
+  (interactive "MEnter a font family:")
+  ;; if font-family-list contains font-family:
+  (set-face-attribute 'default nil
+		      :family font-family)
+  )
+  ;; else message err
+
 
 (provide 'font-interface)
 ;;; font-interface ends here
