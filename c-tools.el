@@ -10,6 +10,7 @@
 
 (require 'resize-window-mode)
 (require 'font-interface)
+(require 'nav-tools)
 
 (provide 'c-tools)
 ;;; c-tools ends here
