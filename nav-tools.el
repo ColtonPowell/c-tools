@@ -8,14 +8,17 @@
 ;; navigate to the end of the current block of text
 
 ;; BREAKS ON EOF
+;; Need to extract lines from count-lines-page
 ;; navigate to the beginning of the next block of text
 (defun next-block()
   (interactive)
   ;;(save-excursion
-    (while (not (current-line-blank-p))
-      (forward-line))
-    (while (current-line-blank-p)
-      (forward-line))
+  (while (and (not (current-line-blank-p))
+	      (<= (line-number-at-pos) (count-lines-page)))
+    (forward-line))
+  (while (and (current-line-blank-p)
+	      (<= (line-number-at-pos) (count-lines-page)))
+    (forward-line))
     ;;(forward-line)
     );;)
 
