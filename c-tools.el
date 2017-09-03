@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; (defun refresh-init-file ()
+;;   (load-file "~/.emacs"))
+
 (require 'resize-window-mode)
 (require 'font-interface)
 

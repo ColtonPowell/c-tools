@@ -16,30 +16,37 @@
 ;; Use to enable/disable the default keys. Set to nil to disable them.
 (defvar rw-enable-default-keys t)
 
-;; Multiplies the number of actions per keypress in
-;; window-resize-mode. Default is 3.
-(defvar rw-multiplier 3)
+;; The value that determines the number of resize actions per
+;; keypress. Default is 3.
+(defvar rw-margin 3)
+
+;; Set the default margin
+(defun rw-set-margin (new-margin)
+  "Set a new margin for resize-window-mode right from the minibuffer."
+  (interactive (list (read-number "Enter a new margin: " rw-margin)))
+  (setq rw-margin new-margin)
+  (message "%d" rw-margin))
 
 ;; Functions for resizing the windows interactively
 (defun rw-enlarge-window-vertically()
   (interactive)
-  (message "Enlarging window vertically %d times." rw-multiplier)
-  (enlarge-window rw-multiplier))
+  (message "Enlarging window vertically %d times." rw-margin)
+  (enlarge-window rw-margin))
 
 (defun rw-shrink-window-vertically()
   (interactive)
-  (message "Shrinking window vertically %d times." rw-multiplier)
-  (shrink-window rw-multiplier))
+  (message "Shrinking window vertically %d times." rw-margin)
+  (shrink-window rw-margin))
 
 (defun rw-shrink-window-horizontally()
   (interactive)
-  (message "Shrinking window horizontally %d times." rw-multiplier)
-  (shrink-window-horizontally rw-multiplier))
+  (message "Shrinking window horizontally %d times." rw-margin)
+  (shrink-window-horizontally rw-margin))
 
 (defun rw-enlarge-window-horizontally()
   (interactive)
-  (message "Enlarging window horizontally %d times." rw-multiplier)
-  (enlarge-window-horizontally rw-multiplier))
+  (message "Enlarging window horizontally %d times." rw-margin)
+  (enlarge-window-horizontally rw-margin))
 
 ;; The custom keymap used
 (defvar resize-window-mode-map
