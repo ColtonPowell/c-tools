@@ -66,7 +66,7 @@ A quicker way to test and change your font.
 
 - `increment-font-size` and `decrement-font-size` inc/decrement the height of the font by `font-margin`, which is equal to 10 by default.
 
-- You can change `font-margin` and the face you're editing (`face-to-edit`) by using the set-font-margin and set-face-to-edit functions respectively. This is temporary.
+- You can change `font-margin` and the face you're editing (`face-to-edit`) by using the `set-font-margin` and `set-face-to-edit` functions respectively. This is temporary.
 
 - Change the font family quickly by using `set-font-family`
     
