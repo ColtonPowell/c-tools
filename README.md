@@ -30,7 +30,7 @@ A thing that helps you get around a little easier.
   This is a section
   This is a section		
   ```
-  - These tools allow you to traverse through the file more quickly by jumping to the nearest end or beginning of a block of text. I bind next-section to M-n and previous-section to M-p
+  - These tools allow you to traverse through the file more quickly by jumping to the nearest end or beginning of a block of text. I recommend bind next-section to M-n and previous-section to M-p
 
 ##### resize-window-mode
 A minor mode for resizing the window.
@@ -61,7 +61,7 @@ A minor mode for resizing the window.
 
   - Example: To change it to 4, add `(setq rwm-margin 4)` to your .emacs or eval the expression.
 
-#####font-interface
+##### font-interface
 A quicker way to test and change your font.
 
 - `increment-font-size` and `decrement-font-size` inc/decrement the height of the font by `font-margin`, which is equal to 10 by default.
