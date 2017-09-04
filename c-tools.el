@@ -5,12 +5,6 @@
 
 ;;; Code:
 
-
-;; TODO:
-;; - A function to display describe-function output on a buffer other
-;; than *Help* for multiple help windows. Provide another function to
-;; put the buffer on the current window.
-
 (require 'resize-window-mode)
 (require 'font-interface)
 (require 'nav-tools)
