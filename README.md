@@ -11,8 +11,30 @@ c-tools is a collection of handy emacs things that may or may not make you a mor
 (require 'c-tools)
 ```
 
-3. (Optional) Setup:
+Useful info:
+
+##### nav-tools
+A thing that helps you get around a little easier.
+
+- The main functions are `next-section(&optional n)` and `previous-section(&optional n)`. They move to the next or previous section n times.
+  - Let a section be defined as a line of text that is at the beginning or end of a block of text. It has at least one line of whitespace before or after it. Example:
+  ```
+  This is a section
+  This is NOT a section
+  This is NOT a section
+  This is NOT a section
+  This is a section
+
+  This is a section
+
+  This is a section
+  This is a section		
+  ```
+  - These tools allow you to traverse through the file more quickly by jumping to the nearest end or beginning of a block of text. I bind next-section to M-n and previous-section to M-p
+
 ##### resize-window-mode
+A minor mode for resizing the window.
+
   - Default keys are:
     - `C-p` and `<up>` (up arrow) to enlarge your current window vertically.
     - `C-n` and `<down>` to shrink your current window vertically.
@@ -21,22 +43,31 @@ c-tools is a collection of handy emacs things that may or may not make you a mor
     - `C-g` and `<escape>` exit resize-window-mode
     
   - To disable these keys, add the following to your .emacs file:
-    `(setq rw-enable-default-keys nil)`
+    `(setq rwm-enable-default-keys nil)`
 
   - To add your own custom keys, add each key **as a string** to their respective list in your .emacs file. There are 5:
-    - `rw-enlarge-vertically-keys`
-    - `rw-shrink-vertically-keys`
-    - `rw-shrink-horizontally-keys`
-    - `rw-enlarge-horizontally-keys`
-    - `rw-exit-keys`
+    - `rwm-enlarge-window-vertically-keys`
+    - `rwm-shrink-window-vertically-keys`
+    - `rwm-shrink-window-horizontally-keys`
+    - `rwm-enlarge-window-horizontally-keys`
+    - `rwm-exit-keys`
     
   - Example: To have Alt-p enlarge your window vertically and have 5 shrink your window vertically, add these lines to your .emacs:
-    - `(add-to-list 'rw-enlarge-vertically-keys "M-p")`
-    - `(add-to-list 'rw-shrink-vertically-keys "5")`
+    - `(add-to-list 'rwm-enlarge-window-vertically-keys "M-p")`
+    - `(add-to-list 'rwm-shrink-window-vertically-keys "5")`
     - etc.
 
-  - To change the number of resize actions per keystroke, change `rw-multiplier` accordingly. Default value is 3. Recommended values are 1-5.
+  - To change the number of resize actions per keystroke, change `rwm-margin` accordingly. Default value is 3. Recommended values are 1-5.
 
-  - Example: To change it to 4, add `(setq rw-multiplier 4)` to your .emacs
+  - Example: To change it to 4, add `(setq rwm-margin 4)` to your .emacs or eval the expression.
+
+#####font-interface
+A quicker way to test and change your font.
+
+- `increment-font-size` and `decrement-font-size` inc/decrement the height of the font by `font-margin`, which is equal to 10 by default.
+
+- You can change `font-margin` and the face you're editing (`face-to-edit`) by using the set-font-margin and set-face-to-edit functions respectively. This is temporary.
+
+- Change the font family quickly by using `set-font-family`
     
     

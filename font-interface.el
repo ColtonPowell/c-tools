@@ -10,22 +10,25 @@
 ;; The face to edit
 (defvar face-to-edit 'default)
 
-;; Set face-to-edit
-(defun set-face-to-edit(new-face)
-  ;; Get the new face string. Remove the ' from the default face
-  (interactive "MEnter the new face to edit: ")
-  ;;(list (read-string "Enter the new face to edit: ")))
+(defun set-font-margin (new-font-margin)
+  "Set a new font margin. Your font height will be
+incremented/decremented by this value whenever you use 
+increment-font-size or decrement-font-size."
+  (interactive
+   (list (read-number "Enter a new font margin: " font-margin)))
+  (setq font-margin new-font-margin))
 
+(defun set-face-to-edit(new-face)
+  "Select a new face to edit."
+  (interactive "MEnter the new face to edit: ")
   ;; Construct the symbol for the new face based on input
   (setq new-face (intern new-face))
-
   ;; Set
-  (setq face-to-edit new-face)
-  )
+  (setq face-to-edit new-face))
 
 ;; Increment the font size by font-margin
 (defun increment-font-size ()
-  "An interactive function that allows you to increment your font size."
+  "Decrement the font size by font-margin."
   (interactive)
   (let* ((current-font-size (face-attribute face-to-edit :height))
 	 (new-font-size (+ current-font-size font-margin)))
@@ -36,7 +39,7 @@
 
 ;; Decrement the font size by font-margin
 (defun decrement-font-size ()
-  "An interactive function that allows you to decrement your font size."
+  "Decrement the font size by font-margin."
   (interactive)
   (let* ((current-font-size (face-attribute face-to-edit :height))
 	 (new-font-size (- current-font-size font-margin)))
@@ -45,10 +48,8 @@
     )
   )
 
-;; perhaps expand to set-attribute
 (defun set-font-family (font-family)
-  "An interactive function that lets you get to setting your font
-family quicker."
+  "Set the font family for face-to-edit"
   (interactive "MEnter a font family:")
   ;; store font family and match-found as nil
   (let ((val (font-family-list))
