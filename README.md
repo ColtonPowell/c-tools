@@ -30,7 +30,7 @@ A thing that helps you get around a little easier.
   This is a section
   This is a section		
   ```
-  - These tools allow you to traverse through the file more quickly by jumping to the nearest end or beginning of a block of text. I recommend bind next-section to M-n and previous-section to M-p
+  - These tools allow you to traverse through the file more quickly by jumping to the nearest end or beginning of a block of text. I recommend bindingnext-section to M-n and previous-section to M-p
 
 ##### resize-window-mode
 A minor mode for resizing the window.
@@ -66,7 +66,7 @@ A quicker way to test and change your font.
 
 - `increment-font-size` and `decrement-font-size` inc/decrement the height of the font by `font-margin`, which is equal to 10 by default.
 
-- You can change `font-margin` and the face you're editing (`face-to-edit`) by using the `set-font-margin` and `set-face-to-edit` functions respectively. This is temporary.
+- You can change `font-margin` and the face you're editing (`face-to-edit`) by quickly using the `set-font-margin` and `set-face-to-edit` functions (respectively), or set them in your .emacs file 
 
 - Change the font family quickly by using `set-font-family`
     
