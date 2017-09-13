@@ -26,9 +26,8 @@ increment-font-size or decrement-font-size."
   ;; Set
   (setq face-to-edit new-face))
 
-;; Increment the font size by font-margin
 (defun increment-font-size ()
-  "Decrement the font size by font-margin."
+  "Increment the font size by font-margin."
   (interactive)
   (let* ((current-font-size (face-attribute face-to-edit :height))
 	 (new-font-size (+ current-font-size font-margin)))
@@ -37,7 +36,6 @@ increment-font-size or decrement-font-size."
     )
   )
 
-;; Decrement the font size by font-margin
 (defun decrement-font-size ()
   "Decrement the font size by font-margin."
   (interactive)

@@ -70,7 +70,6 @@ whitespace with the press of a single key.
       (previous-section-from-text))
     (setq n (- n 1))))
 
-;; get to the next section from text.
 (defun next-section-from-text()
   "Move the cursor to the next section assuming it is placed in a
   line of text."
@@ -93,7 +92,6 @@ whitespace with the press of a single key.
     (if (eval at-eof)
 	(message "Reached end of file."))))
 
-;; get to the next section from whitespace.
 (defun next-section-from-ws()
   "Move the cursor to the next section assuming it is placed in a
   line of only whitespace."

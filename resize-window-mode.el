@@ -1,5 +1,5 @@
 ;;; resize-window-mode.el --- The window resizing component of
-;;; c-tools.el
+;; c-tools.el
 ;; Copyright (C) 2017 Colton Powell
 ;; Author: Colton Powell
 
@@ -52,7 +52,6 @@
   (message "Enlarging window horizontally %d times." rwm-margin)
   (enlarge-window-horizontally rwm-margin))
 
-;; The custom keymap used
 (defvar resize-window-mode-map
   (let ((map (make-sparse-keymap))
 	(current nil))
