@@ -27,16 +27,22 @@ This is a section
 
 This tool is intended to make file traversal more quick by
 allowing you to skip through entire blocks of both text and
-whitespace with the press of a single key.
-"
+whitespace with the press of a single key."
+  
   (interactive)
+  (let ((orig-column (current-column)))
   (if (not n)
       (setq n 1))
   (while (> n 0)
     (if (current-line-blank-p)
 	(next-section-from-ws)
       (next-section-from-text))
-    (setq n (- n 1))))
+    (setq n (- n 1)))
+  ;; After reaching the proper line, move to the original position on
+  ;; it (or to the point at eol)
+  (while (and (< (current-column) orig-column)
+	      (< (point) (point-at-eol)))
+    (forward-char))))
 
 (defun previous-section(&optional n)
   "Move the cursor to the n'th previous section. If n is nil, then
@@ -59,16 +65,25 @@ This is a section
 
 This tool is intended to make file traversal more quick by
 allowing you to skip through entire blocks of both text and
-whitespace with the press of a single key.
-"
+whitespace with the press of a single key."
+  
   (interactive)
+  ;; Keep the original column number to readjust cursor x coordinates
+  ;; after the move
+  (let ((orig-column (current-column)))
   (if (not n)
       (setq n 1))
   (while (> n 0)
     (if (current-line-blank-p)
         (previous-section-from-ws)
       (previous-section-from-text))
-    (setq n (- n 1))))
+    (setq n (- n 1)))
+
+  ;; After reaching the proper line, move to the original position on
+  ;; it (or to the point at eol)
+  (while (and (< (current-column) orig-column)
+	      (< (point) (point-at-eol)))
+    (forward-char))))
 
 (defun next-section-from-text()
   "Move the cursor to the next section assuming it is placed in a
