@@ -10,9 +10,7 @@
   "Move the cursor to the n'th next section. If n is nil, then
 move the cursor to the next section. 
 
-Let a section be defined as a line of text that is at the beginning or
-end of a block of text. It has at least one line of whitespace before
-or after it.
+A section is the line at the beginning or end of a block of text:
 
 This is a section
 This is NOT a section
@@ -25,9 +23,8 @@ This is a section
 This is a section
 This is a section
 
-This tool is intended to make file traversal more quick by
-allowing you to skip through entire blocks of both text and
-whitespace with the press of a single key."
+This tool allows you to navigate more quickly by traversing entire
+blocks of text with a single key."
   
   (interactive)
   (let ((orig-column (current-column)))
@@ -48,9 +45,7 @@ whitespace with the press of a single key."
   "Move the cursor to the n'th previous section. If n is nil, then
 move the cursor to the previous section. 
 
-Let a section be defined as a line of text that is at the beginning or
-end of a block of text. It has at least one line of whitespace before
-or after it.
+A section is the line at the beginning or end of a block of text:
 
 This is a section
 This is NOT a section
@@ -63,9 +58,8 @@ This is a section
 This is a section
 This is a section
 
-This tool is intended to make file traversal more quick by
-allowing you to skip through entire blocks of both text and
-whitespace with the press of a single key."
+This tool allows you to navigate more quickly by traversing entire
+blocks of text with a single key."
   
   (interactive)
   ;; Keep the original column number to readjust cursor x coordinates

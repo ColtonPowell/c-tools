@@ -17,7 +17,8 @@ Useful info:
 A thing that helps you get around a little easier.
 
 - The main functions are `next-section(&optional n)` and `previous-section(&optional n)`. They move to the next or previous section n times.
-  - Let a section be defined as a line of text that is at the beginning or end of a block of text. It has at least one line of whitespace before or after it. Example:
+  - A section is the line at the beginning or end of a block of text:
+  
   ```
   This is a section
   This is NOT a section
@@ -30,7 +31,8 @@ A thing that helps you get around a little easier.
   This is a section
   This is a section		
   ```
-  - These tools allow you to traverse through the file more quickly by jumping to the nearest end or beginning of a block of text. I recommend bindingnext-section to M-n and previous-section to M-p
+  - This tool allows you to navigate more quickly by traversing entire
+blocks of text with a single key.
 
 ##### resize-window-mode
 A minor mode for resizing the window.
