@@ -16,23 +16,7 @@ Useful info:
 ##### nav-tools
 A thing that helps you get around a little easier.
 
-- The main functions are `next-section(&optional n)` and `previous-section(&optional n)`. They move to the next or previous section n times.
-  - A section is the line at the beginning or end of a block of text:
-  
-  ```
-  This is a section
-  This is NOT a section
-  This is NOT a section
-  This is NOT a section
-  This is a section
-
-  This is a section
-
-  This is a section
-  This is a section		
-  ```
-  - This tool allows you to navigate more quickly by traversing entire
-blocks of text with a single key.
+- The main functions are `next-block-soe(&optional n)` and `previous-block-soe(&optional n)`. They move to the start or end (soe; the first or last line) of the next/previous block of text.
 
 ##### resize-window-mode
 A minor mode for resizing the window.
