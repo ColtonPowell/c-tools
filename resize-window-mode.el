@@ -5,11 +5,7 @@
 
 ;;; Code:
 
-;; Use to enable/disable the default keys. Set to nil to disable them.
-(defvar rwm-enable-default-keys t)
-
-;; The value that determines the number of resize actions per
-;; keypress. Default is 3.
+;; Determines the number of resize actions per keypress.
 (defvar rwm-margin 3)
 
 ;; Set the default margin from the minibuffer
@@ -44,52 +40,72 @@
   (message "Enlarging window horizontally %d times." rwm-margin)
   (enlarge-window-horizontally rwm-margin))
 
-(defvar resize-window-mode-map
-  (let ((map (make-sparse-keymap))
-	(current nil))
-    
-    ;; Enable default keys if the user allows
-    (when rwm-enable-default-keys
-      ;; Add default vertical enlarge keys
-      (define-key map (kbd "<up>") 'rwm-enlarge-window-vertically)
-      (define-key map (kbd "C-p") 'rwm-enlarge-window-vertically)
-      ;; Add default vertical shrink keys
-      (define-key map (kbd "<down>") 'rwm-shrink-window-vertically)
-      (define-key map (kbd "C-n") 'rwm-shrink-window-vertically)
-      ;; Add default horizontal enlarge keys
-      (define-key map (kbd "<right>") 'rwm-enlarge-window-horizontally)
-      (define-key map (kbd "C-f") 'rwm-enlarge-window-horizontally)
-      ;; Add default horizontal shrink keys
-      (define-key map (kbd "<left>") 'rwm-shrink-window-horizontally)
-      (define-key map (kbd "C-b") 'rwm-shrink-window-horizontally)
-      ;; Add default exit keys
-      (define-key map (kbd "<escape>") 'resize-window-mode)
-      (define-key map (kbd "C-g") 'resize-window-mode))
+;; resize-window-mode's keymap. A blank map by default, customizable
+;; by the user or by (rwm-toggle-default-keys)
+(defvar resize-window-mode-map (make-sparse-keymap))
 
-    map)
-  
-  "The resize-window-mode keymap.
+;; Determines whether default keys are toggled on/off
+(defvar rwm-default-keys-on nil)
 
-Default keys are:
+;; Toggles the default keys on and off depending on their current state
+(defun rwm-toggle-default-keys()
+  (interactive)
+  ;; If default keys are on, turn them off and vice versa
+  (if rwm-default-keys-on
+      (progn
+	;; Disable default vertical enlarge keys
+	(define-key resize-window-mode-map (kbd "<up>") nil)
+	(define-key resize-window-mode-map (kbd "C-p") nil)
+	;; Disable default vertical shrink keys
+	(define-key resize-window-mode-map (kbd "<down>") nil)
+	(define-key resize-window-mode-map (kbd "C-n") nil)
+	;; Disable default horizontal enlarge keys
+	(define-key resize-window-mode-map (kbd "<right>") nil)
+	(define-key resize-window-mode-map (kbd "C-f") nil)
+	;; Disable default horizontal shrink keys
+	(define-key resize-window-mode-map (kbd "<left>") nil)
+	(define-key resize-window-mode-map (kbd "C-b") nil)
+	;; Disable default exit keys
+	(define-key resize-window-mode-map (kbd "<escape>") nil)
+	(define-key resize-window-mode-map (kbd "C-g") nil)
+	;; Record these changes
+	(setq rwm-default-keys-on nil))
+
+    ;; Enable default vertical enlarge keys
+    (define-key resize-window-mode-map (kbd "<up>") 'rwm-enlarge-window-vertically)
+    (define-key resize-window-mode-map (kbd "C-p") 'rwm-enlarge-window-vertically)
+    ;; Enable default vertical shrink keys
+    (define-key resize-window-mode-map (kbd "<down>") 'rwm-shrink-window-vertically)
+    (define-key resize-window-mode-map (kbd "C-n") 'rwm-shrink-window-vertically)
+    ;; Enable default horizontal enlarge keys
+    (define-key resize-window-mode-map (kbd "<right>") 'rwm-enlarge-window-horizontally)
+    (define-key resize-window-mode-map (kbd "C-f") 'rwm-enlarge-window-horizontally)
+    ;; Enable default horizontal shrink keys
+    (define-key resize-window-mode-map (kbd "<left>") 'rwm-shrink-window-horizontally)
+    (define-key resize-window-mode-map (kbd "C-b") 'rwm-shrink-window-horizontally)
+    ;; Enable default exit keys
+    (define-key resize-window-mode-map (kbd "<escape>") 'resize-window-mode)
+    (define-key resize-window-mode-map (kbd "C-g") 'resize-window-mode)
+    ;; Record these changes
+    (setq rwm-default-keys-on t))
+
+"Toggles the default resize-window-mode keys. They are off by
+default. Toggling the keys off will WIPE resize-window-mode-maps
+keybinds for C-p/n/f/b and <up/down/right/left>. Next patch will
+instead restore the previous bindings instead of wiping them
+
+Use (rwm-toggle-default-keys) ONCE to enable default keys, shown below:
     - \"C-p\" and \"<up>\" (up arrow) to enlarge your current window vertically.
     - \"C-n\" and \"<down>\" to shrink your current window vertically.
-    - \"C-b\" and \"<left>\" to shrink your current window horizontally.
     - \"C-f\" and \"<right>\" to enlarge your current window horizontally.
+    - \"C-b\" and \"<left>\" to shrink your current window horizontally.
     - \"C-g\" and \"<escape>\" exit resize-window-mode
 
-To disable these keys, (setq rwm-enable-default-keys nil)
+Use the 'define-key' function to customize keybinds
 
-To add your own custom keys, evaluate or add this to your .emacs:
-    - (define-key resize-window-mode-map (kbd \"KEY_NAME\") 'KEY_ACTION)
-
-Where KEY_NAME might be something like \"C-l\" or \"M-n\" and
-KEY_ACTION would be the name of the function you're trying to use like
-'resize-window-mode or 'rwm-shrink-window-horizontally.
-
-To change the number of resize actions per keystroke, change
-rwm-margin accordingly. Default value is 3. Recommended values
-are 1-5.
-")
+Change 'rwm-margin' to change the number of resizes per
+keystroke. Default value is 3, recommended values are 1-5."
+)
 
 ;; The actual mode
 (define-minor-mode resize-window-mode
@@ -100,5 +116,3 @@ are 1-5.
 
 (provide 'resize-window-mode)
 ;;; resize-window-mode ends here
-
-;; (define-key resize-window-mode-map (kbd "M-p") 'rwm-enlarge-window-vertically)

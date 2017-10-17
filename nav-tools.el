@@ -155,5 +155,16 @@ count-lines-page."
       (setq total (count-lines beg end))
       total)))
 
+;; Because I got tired of backward-kill-word cluttering my precious clipboard
+(defun delete-word(arg)
+  "Deletes arg words"
+  (interactive "p")
+  (delete-region (point) (progn (forward-word arg) (point))))
+
+(defun backward-delete-word(arg)
+  "Deletes arg words backwards."
+  (interactive "p")
+  (delete-word (- arg)))
+
 (provide 'nav-tools)
 ;;; nav-tools.el ends here.
