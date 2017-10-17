@@ -23,7 +23,7 @@ A thing that helps you get around a little easier.
 ##### resize-window-mode
 A minor mode for resizing the window.
 
-  - Use `(rwm-toggle-default-keys)` ONCE to enable default keys (and again to disable them), shown below:
+  - Use `(rwm-toggle-default-keys)` ONCE to enable default keys (and again to disable them), which are shown below:
     - `C-p` and `<up>` (up arrow) to enlarge your current window vertically.
     - `C-n` and `<down>` to shrink your current window vertically.
     - `C-f` and `<right>` to enlarge your current window horizontally.
