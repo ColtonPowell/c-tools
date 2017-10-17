@@ -1,5 +1,4 @@
-;;; resize-window-mode.el --- The window resizing component of
-;; c-tools.el
+;;; resize-window-mode.el --- Resize windows more easily
 ;; Copyright (C) 2017 Colton Powell
 ;; Author: Colton Powell
 

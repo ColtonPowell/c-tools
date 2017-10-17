@@ -1,5 +1,4 @@
-;;;nav-tools.el --- A few things that may help you get around a bit
-;;;easier.
+;;;nav-tools.el --- Navigate through files easier!
 ;; Copyright (C) 2017 Colton Powell
 ;; Author: Colton Powell
 

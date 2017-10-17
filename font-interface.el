@@ -1,5 +1,4 @@
-;;; font-interface.el --- A more user-friendly approach to changing
-;;; the font and its attributes.
+;;; font-interface.el --- Change your font without having to learn elisp!
 ;; Copyright (C) 2017 Colton Powell
 ;; Author: Colton Powell
 
