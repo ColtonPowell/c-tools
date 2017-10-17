@@ -24,10 +24,10 @@ A thing that helps you get around a little easier.
 A minor mode for resizing the window.
 
   - Use `(rwm-toggle-default-keys)` ONCE to enable default keys (and again to disable them), which are shown below:
-    - `C-p` and `<up>` (up arrow) to enlarge your current window vertically.
-    - `C-n` and `<down>` to shrink your current window vertically.
-    - `C-f` and `<right>` to enlarge your current window horizontally.
-    - `C-b` and `<left>` to shrink your current window horizontally.
+    - `C-p` and `<up>` (up arrow) enlarge your current window vertically.
+    - `C-n` and `<down>` shrink your current window vertically.
+    - `C-f` and `<right>` enlarge your current window horizontally.
+    - `C-b` and `<left>` shrink your current window horizontally.
     - `C-g` and `<escape>` exit resize-window-mode
 
   - Use the `define-key` function to customize keybinds
