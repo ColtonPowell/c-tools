@@ -21,6 +21,7 @@ A thing that helps you get around a little easier.
 - (Also feel free to use `backward-delete-word` if you're tired of backward-kill-word cluttering your clipboard.)
 
 ##### resize-window-mode
+###### Development MOVED to https://github.com/coltonpowell/window-manage-mode
 A minor mode for resizing the window.
 
   - Use `(rwm-toggle-default-keys)` ONCE to enable default keys (and again to disable them), which are shown below:
