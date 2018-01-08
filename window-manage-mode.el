@@ -141,8 +141,7 @@ this variable."
 ;; Could use autoload magic comment here?
 (define-global-minor-mode window-manage-mode
   local-window-manage-mode
-  window-manage-mode-on
-  );;"Activates `window-manage-mode' in all buffers.")
+  window-manage-mode-on)
 
 (provide 'window-manage-mode)
 ;;; window-manage-mode ends here
