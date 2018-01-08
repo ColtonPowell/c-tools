@@ -27,7 +27,7 @@ A mode to encompass all of your emacs window management (moving, resizing, swapp
 ###### Info:
 - To enable extra functionality, install `ace-window` (version >= 0.9.0) and set `wmm-require-ace-window` to `t`.
 
-- Change `wmm-multiplier` to modify the power of `window-manage-mode`s resizing functions.
+- Change `wmm-multiplier` to modify the power of `window-manage-mode's` resizing functions.
 
 - `(describe-function 'window-manage-mode)` after installation and setup to see keybinds.
 
