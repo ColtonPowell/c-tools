@@ -5,7 +5,7 @@ c-tools is a collection of handy emacs things that may or may not make you a mor
 1. Clone the repo:
 `git clone https://github.com/ColtonPowell/c-tools.git`
 
-2. Add the following lines to your .emacs file:
+2. Add the following lines to your .emacs file (and change /path/to/c-tools accordingly):
 ```
 (add-to-list 'load-path "/path/to/c-tools")
 (require 'c-tools)
