@@ -112,9 +112,9 @@ this variable."
  
     ;; ========== Enable ace-window keys ==========
     (define-key map (kbd "a") 'ace-window)
-    (define-key map (kbd "s") 'ace-select-window)
+    (define-key map (kbd "s") 'ace-swap-window)
     (define-key map (kbd "d") 'ace-delete-window)
-    (define-key map (kbd "f") 'ace-swap-window)
+    (define-key map (kbd "f") 'ace-delete-other-windows)
 
     ;; ========== Enable Exit Keys ==========
     (define-key map (kbd "C-g") 'window-manage-mode)
@@ -129,20 +129,20 @@ this variable."
 (defun window-manage-mode-on()
   (unless (minibufferp)
     (local-window-manage-mode))
-  "Function used by `global-window-manage-mode' to activate
-  `window-manage-mode' in every buffer.")
+  "Function used to help enable `local-window-manage-mode' in
+  every buffer.")
 
 (define-minor-mode local-window-manage-mode
+  "DO NOT USE! Use `window-manage-mode' instead"
   nil
   nil
-  window-manage-mode-map
-  "DO NOT USE! Use `window-manage-mode' instead")
+  window-manage-mode-map)
 
 ;; Could use autoload magic comment here?
 (define-global-minor-mode window-manage-mode
   local-window-manage-mode
   window-manage-mode-on
-  "Activates `window-manage-mode' in all buffers.")
+  );;"Activates `window-manage-mode' in all buffers.")
 
 (provide 'window-manage-mode)
 ;;; window-manage-mode ends here
