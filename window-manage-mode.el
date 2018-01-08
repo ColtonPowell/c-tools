@@ -18,18 +18,13 @@
 ;; Package-Requires: ((ace-window "0.9.0"))
 
 ;;; Code:
+(require 'ace-window)
 
 ;; Determines the number of resize actions per keypress.
 (defcustom wmm-multiplier 3
   "Multiplies the number of actions for the `window-manage-mode' resize
 functions. Default value is 3. Recommended values are 1-5."
   :type 'integer)
-
-(defcustom wmm-require-ace-window nil
-  "Specifies whether `ace-window' keybinds are enabled in
-`window-manage-mode'. If this is the case, the value should be
-  t. Default value is nil."
-  :type 'boolean)
 
 ;; Set the default multiplier from the minibuffer
 (defun wmm-set-multiplier (new-multiplier)
@@ -115,13 +110,11 @@ this variable."
     ;; Delete current window
     (define-key map (kbd "0") 'delete-window)
  
-    ;; ========== Enable ace-window keys if enabled ==========
-    (when wmm-require-ace-window
-      (require 'ace-window)
-      (define-key map (kbd "a") 'ace-window)
-      (define-key map (kbd "s") 'ace-select-window)
-      (define-key map (kbd "d") 'ace-delete-window)
-      (define-key map (kbd "f") 'ace-swap-window))
+    ;; ========== Enable ace-window keys ==========
+    (define-key map (kbd "a") 'ace-window)
+    (define-key map (kbd "s") 'ace-select-window)
+    (define-key map (kbd "d") 'ace-delete-window)
+    (define-key map (kbd "f") 'ace-swap-window)
 
     ;; ========== Enable Exit Keys ==========
     (define-key map (kbd "C-g") 'window-manage-mode)

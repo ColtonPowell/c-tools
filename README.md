@@ -11,6 +11,8 @@ c-tools is a collection of handy emacs things that may or may not make you a mor
 (require 'c-tools)
 ```
 
+3. Install `ace-window` version >= 0.9.0 (https://github.com/abo-abo/ace-window).
+
 Useful info:
 
 #### nav-tools
@@ -25,8 +27,6 @@ A thing that helps you get around a little easier.
 A mode to encompass all of your emacs window management (moving, resizing, swapping, deleting, etc.) needs!
 
 ###### Info:
-- To enable extra functionality, install `ace-window` (version >= 0.9.0) and set `wmm-require-ace-window` to `t`.
-
 - Change `wmm-multiplier` to modify the power of `window-manage-mode's` resizing functions.
 
 - `(describe-function 'window-manage-mode)` after installation and setup to see keybinds.
