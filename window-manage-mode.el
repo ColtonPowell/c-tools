@@ -128,19 +128,19 @@ this variable."
 
 (defun window-manage-mode-on()
   (unless (minibufferp)
-    (window-manage-mode))
+    (local-window-manage-mode))
   "Function used by `global-window-manage-mode' to activate
   `window-manage-mode' in every buffer.")
 
-(define-minor-mode window-manage-mode
+(define-minor-mode local-window-manage-mode
   nil
   nil
   window-manage-mode-map
-  "DO NOT USE! Use `global-window-manage-mode' instead")
+  "DO NOT USE! Use `window-manage-mode' instead")
 
 ;; Could use autoload magic comment here?
-(define-global-minor-mode global-window-manage-mode
-  window-manage-mode
+(define-global-minor-mode window-manage-mode
+  local-window-manage-mode
   window-manage-mode-on
   "Activates `window-manage-mode' in all buffers.")
 
