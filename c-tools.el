@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-(require 'resize-window-mode)
+(require 'window-manage-mode)
 (require 'font-interface)
 (require 'nav-tools)
 
