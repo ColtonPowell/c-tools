@@ -1,7 +1,7 @@
 # c-tools
 c-tools is a collection of handy emacs things that may or may not make you a more productive programmer.
 
-### Installation
+## Installation
 1. Clone the repo:
 `git clone https://github.com/ColtonPowell/c-tools.git`
 
@@ -13,7 +13,7 @@ c-tools is a collection of handy emacs things that may or may not make you a mor
 
 Useful info:
 
-##### nav-tools
+#### nav-tools
 A thing that helps you get around a little easier.
 
 ###### Info:
@@ -21,7 +21,7 @@ A thing that helps you get around a little easier.
 
 - (Also feel free to use `backward-delete-word` if you're tired of backward-kill-word cluttering your clipboard.)
 
-##### window-manage-mode
+#### window-manage-mode
 A mode to encompass all of your emacs window management (moving, resizing, swapping, deleting, etc.) needs!
 
 ###### Info:
@@ -31,7 +31,7 @@ A mode to encompass all of your emacs window management (moving, resizing, swapp
 
 - `(describe-function 'window-manage-mode)` after installation and setup to see keybinds.
 
-##### font-interface
+#### font-interface
 A quicker way to test and change your font.
 
 ###### Info:
