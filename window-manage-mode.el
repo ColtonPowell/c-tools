@@ -116,6 +116,10 @@ this variable."
     (define-key map (kbd "d") 'ace-delete-window)
     (define-key map (kbd "f") 'ace-delete-other-windows)
 
+    ;; ========== Enable window balancing keys ==========
+    (define-key map (kbd "x") 'balance-windows)
+    (define-key map (kbd "c") 'balance-windows-area)
+
     ;; ========== Enable Exit Keys ==========
     (define-key map (kbd "C-g") 'window-manage-mode)
     (define-key map (kbd "<escape>") 'window-manage-mode)

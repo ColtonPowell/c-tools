@@ -24,7 +24,7 @@ A thing that helps you get around a little easier.
 - (Also feel free to use `backward-delete-word` if you're tired of backward-kill-word cluttering your clipboard.)
 
 #### window-manage-mode
-A mode to encompass all of your emacs window management (moving, resizing, swapping, deleting, etc.) needs!
+A mode to encompass all of your emacs window management (moving, resizing, balancing, swapping, deleting, etc.) needs!
 
 ###### Info:
 - Change `wmm-multiplier` to modify the power of `window-manage-mode's` resizing functions.
