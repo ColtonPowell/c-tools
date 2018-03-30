@@ -74,36 +74,45 @@ this variable."
     ;; Enable default vertical enlarge keys
     (define-key map (kbd "<M-up>") 'wmm-enlarge-window-vertically)
     (define-key map (kbd "M-p") 'wmm-enlarge-window-vertically)
+    (define-key map (kbd "M-l") 'wmm-enlarge-window-vertically)
 
     ;; Enable default vertical shrink keys
     (define-key map (kbd "<M-down>") 'wmm-shrink-window-vertically)
     (define-key map (kbd "M-n") 'wmm-shrink-window-vertically)
+    (define-key map (kbd "M-k") 'wmm-shrink-window-vertically)
 
     ;; Enable default horizontal enlarge keys
     (define-key map (kbd "<M-right>") 'wmm-enlarge-window-horizontally)
     (define-key map (kbd "M-f") 'wmm-enlarge-window-horizontally)
+    (define-key map (kbd "M-;") 'wmm-enlarge-window-horizontally)
 
     ;; Enable default horizontal shrink keys
     (define-key map (kbd "<M-left>") 'wmm-shrink-window-horizontally)
     (define-key map (kbd "M-b") 'wmm-shrink-window-horizontally)
+    (define-key map (kbd "M-j") 'wmm-shrink-window-horizontally)
 
     ;; ========== Enable Window Switching Keys ==========
     ;; Enable default up window switch keys
     (define-key map (kbd "<C-up>") 'windmove-up)
     (define-key map (kbd "C-p") 'windmove-up)
+    (define-key map (kbd "C-l") 'windmove-up)
     
     ;; Enable default down window switch keys
     (define-key map (kbd "<C-down>") 'windmove-down)
     (define-key map (kbd "C-n") 'windmove-down)
-    
-    ;; Enable default left window switch keys
-    (define-key map (kbd "<C-right>") 'windmove-right)
-    (define-key map (kbd "C-f") 'windmove-right)
+    (define-key map (kbd "C-k") 'windmove-down)
     
     ;; Enable default right window switch keys
+    (define-key map (kbd "<C-right>") 'windmove-right)
+    (define-key map (kbd "C-f") 'windmove-right)
+    (define-key map (kbd "C-;") 'windmove-right)
+    
+    ;; Enable default left window switch keys
     (define-key map (kbd "<C-left>") 'windmove-left)
     (define-key map (kbd "C-b") 'windmove-left)
+    (define-key map (kbd "C-l") 'windmove-left)
 
+    ;; ========== Other Window Functions ==========
     ;; Enable easier window swap key
     (define-key map (kbd "o") 'other-window)
 
