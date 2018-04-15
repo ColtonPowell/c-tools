@@ -139,7 +139,7 @@
 	  t))))
 
 (defun get-num-page-lines ()
-  "Return the number of lines on current page. A modified version of
+  "Returns the number of lines on current page. A modified version of
 count-lines-page."
   (save-excursion
     (let ((opoint (point)) beg end
@@ -154,16 +154,23 @@ count-lines-page."
       (setq total (count-lines beg end))
       total)))
 
-;; Because I got tired of backward-kill-word cluttering my precious clipboard
 (defun delete-word(arg)
   "Deletes arg words"
   (interactive "p")
   (delete-region (point) (progn (forward-word arg) (point))))
 
+;; Because I got tired of backward-kill-word cluttering my precious clipboard
 (defun backward-delete-word(arg)
   "Deletes arg words backwards."
   (interactive "p")
   (delete-word (- arg)))
 
+(defun path-to-clip()
+  "Copies the path to the current file or directory to the clipboard. You may
+  want to include (setq select-enable-clipboard t) in your .emacs for best
+  results."
+  (interactive)
+  (kill-new (buffer-file-name)))
+
 (provide 'nav-tools)
-;;; nav-tools.el ends here.
+;;; nav-tools.el ends here
