@@ -70,7 +70,7 @@ this variable."
 (defcustom window-manage-mode-map
   (if wmm-default-keys-on
   (let ((map (make-sparse-keymap)))
-    ;; ========== Enable Window Sizing Keys ==========
+    ;; ========== Window Sizing Keys ==========
     ;; Enable default vertical enlarge keys
     (define-key map (kbd "<M-up>") 'wmm-enlarge-window-vertically)
     (define-key map (kbd "M-p") 'wmm-enlarge-window-vertically)
@@ -91,7 +91,7 @@ this variable."
     (define-key map (kbd "M-b") 'wmm-shrink-window-horizontally)
     (define-key map (kbd "M-j") 'wmm-shrink-window-horizontally)
 
-    ;; ========== Enable Window Switching Keys ==========
+    ;; ========== Window Switching Keys ==========
     ;; Enable default up window switch keys
     (define-key map (kbd "<C-up>") 'windmove-up)
     (define-key map (kbd "C-p") 'windmove-up)
@@ -112,6 +112,10 @@ this variable."
     (define-key map (kbd "C-b") 'windmove-left)
     (define-key map (kbd "C-l") 'windmove-left)
 
+    ;; ========== Window Splitting Keys ==========
+    (define-key map (kbd "2") 'split-window-below)
+    (define-key map (kbd "3") 'split-window-right)
+
     ;; ========== Other Window Functions ==========
     ;; Enable easier window swap key
     (define-key map (kbd "o") 'other-window)
@@ -119,17 +123,17 @@ this variable."
     ;; Delete current window
     (define-key map (kbd "0") 'delete-window)
  
-    ;; ========== Enable ace-window keys ==========
+    ;; ========== ace-window keys ==========
     (define-key map (kbd "a") 'ace-window)
     (define-key map (kbd "s") 'ace-swap-window)
     (define-key map (kbd "d") 'ace-delete-window)
     (define-key map (kbd "f") 'ace-delete-other-windows)
 
-    ;; ========== Enable window balancing keys ==========
+    ;; ==========  Window Balancing Keys ==========
     (define-key map (kbd "x") 'balance-windows)
     (define-key map (kbd "c") 'balance-windows-area)
 
-    ;; ========== Enable Exit Keys ==========
+    ;; ==========  Exit Keys ==========
     (define-key map (kbd "C-g") 'window-manage-mode)
     (define-key map (kbd "<escape>") 'window-manage-mode)
     
