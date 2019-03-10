@@ -1,13 +1,12 @@
-;;;nav-tools.el --- Navigate through files easier!
+;;; nav-tools.el --- Navigate through files easier!
 ;; Copyright (C) 2017 Colton Powell
 ;; Author: Colton Powell
 
 ;;; Code:
 
 (defun next-block-soe(&optional n)
-  "Moves the cursor to the start or end (soe: first line or last
-  line) of the next block of text, whichever comes first. Passing
-  in an optional arg n performs this action n times."
+  "Move cursor to start or end (soe) of the next block of text.
+Passing optional arg N performs this action N times."
   
   (interactive)
   (let ((orig-column (current-column)))
@@ -25,10 +24,8 @@
     (forward-char))))
 
 (defun previous-block-soe(&optional n)
-  "Moves the cursor to the start or end (soe: first line or last
-  line) of the previous block of text, whichever comes
-  first. Passing in an optional arg n performs this action n
-  times."
+  "Move cursor to start or end (soe) of the next block of text.
+Passing optional arg N performs this action N times."
   
   (interactive)
   (let ((orig-column (current-column)))
@@ -47,9 +44,9 @@
     (forward-char))))
 
 (defun next-block-soe-from-text()
-  "Moves the cursor to the start or end (soe: first or last line)
-  of the next block of text assuming it is placed in a line of
-  text (and not whitespace). Is a helper function for next-block-soe."
+  "Move cursor to start or end (soe) of the next text block.
+Should ONLY be used when the cursor is on a line with ONLY text.
+This is a helper function for next-block-soe."
   ;; eval (get-num-page-lines) here to avoid repeated, unnecessary evals
   (let ((lines-in-buffer (get-num-page-lines))
 	(at-eof '(>= (line-number-at-pos) lines-in-buffer)))
@@ -70,9 +67,10 @@
 	(message "Reached end of file."))))
 
 (defun next-block-soe-from-ws()
-  "Moves the cursor to the start or end (soe: first or last line)
-  of the next block of text assuming it is placed in a line of
-  whitespace (and not text). Is a helper function for next-block-soe."
+  "Move cursor to start or end (soe) of the next text block.
+Should ONLY be used when the cursor is on a line with ONLY
+whitespace and no text.  This is a helper function for
+next-block-soe."
   (let ((lines-in-buffer (get-num-page-lines))
 	(at-eof '(>= (line-number-at-pos) lines-in-buffer)))
     
@@ -85,9 +83,9 @@
 	(message "Reached end of file."))))
 
 (defun previous-block-soe-from-text()
-  "Moves the cursor to the start or end (soe: first or last line)
-  of the previous block of text assuming it is placed in a line of
-  text (and not whitespace). Is a helper function for previous-block-soe."
+  "Move cursor to start or end (soe) of the previous text block.
+Should ONLY be used when the cursor is on a line with text.  This
+is a helper function for previous-block-soe."
   (let ((at-bof '(= (line-number-at-pos) 1)))
     ;; Cases (must always be (not at-bof)):
     ;; - Previous line is blank -> move to it and (previous-block-soe-from-ws)
@@ -105,9 +103,9 @@
 	(message "Reached beginning of file."))))
 
 (defun previous-block-soe-from-ws()
-  "Moves the cursor to the start or end (soe: first or last line)
-  of the previous block of text assuming it is placed in a line of
-  whitespace (and not text). Is a helper function for previous-block-soe."
+  "Move cursor to start or end (soe) of the previous text block.
+Should ONLY be used when the cursor is on a line with ONLY
+whitespace and no text.  This is a helper function for previous-block-soe."
   (let ((at-bof '(= (line-number-at-pos) 1)))
     ;; move to previous line while current line is blank and not at-eof
     (while (and (current-line-blank-p) (not (eval at-bof)))
@@ -117,13 +115,13 @@
 	(message "Reached beginning of file."))))
 
 (defun current-line-blank-p()
-  "Returns t if the current line is whitespace."
+  "Return t if the current line is whitespace."
     (let ((current-line (thing-at-point 'line)))
       (if (eq (string-match-p "^[[:space:]]*$" current-line) 0)
 	  t)))
 
 (defun next-line-blank-p()
-  "Returns t if the next line is whitespace."
+  "Return t if the next line is whitespace."
   (save-excursion
     (forward-line)
     (let ((current-line (thing-at-point 'line)))
@@ -131,7 +129,7 @@
 	  t))))
 
 (defun previous-line-blank-p()
-  "Returns t if the previous line is whitespace."
+  "Return t if the previous line is whitespace."
   (save-excursion
     (forward-line -1)
     (let ((current-line (thing-at-point 'line)))
@@ -139,8 +137,8 @@
 	  t))))
 
 (defun get-num-page-lines ()
-  "Returns the number of lines on current page. A modified version of
-count-lines-page."
+  "Return the number of lines on the current page.
+A modified version of \"count-lines-page\"."
   (save-excursion
     (let ((opoint (point)) beg end
 	  total)
@@ -155,22 +153,26 @@ count-lines-page."
       total)))
 
 (defun delete-word(arg)
-  "Deletes arg words"
+  "Delete ARG words."
   (interactive "p")
   (delete-region (point) (progn (forward-word arg) (point))))
 
 ;; Because I got tired of backward-kill-word cluttering my precious clipboard
 (defun backward-delete-word(arg)
-  "Deletes arg words backwards."
+  "Delete ARG words backwards."
   (interactive "p")
   (delete-word (- arg)))
 
 (defun path-to-clip()
-  "Copies the path to the current file or directory to the clipboard. You may
-  want to include (setq select-enable-clipboard t) in your .emacs for best
-  results."
+  "Copy path to file/dir open in the buffer to the clipboard.
+Use (setq select-enable-clipboard t) for best results."
   (interactive)
   (kill-new (buffer-file-name)))
+
+(defun back-window()
+  "Move backwards a window."
+  (interactive)
+  (other-window -1))
 
 (provide 'nav-tools)
 ;;; nav-tools.el ends here

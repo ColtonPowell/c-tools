@@ -22,13 +22,13 @@
 
 ;; Determines the number of resize actions per keypress.
 (defcustom wmm-multiplier 3
-  "Multiplies the number of actions for the `window-manage-mode' resize
+  "Multiply the number of actions for the `window-manage-mode' resize
 functions. Default value is 3. Recommended values are 1-5."
   :type 'integer)
 
 ;; Set the default multiplier from the minibuffer
 (defun wmm-set-multiplier (new-multiplier)
-  "Set a new multiplier for window-manage-mode."
+  "Set NEW-MULTIPLIER value for `window-manage-mode'."
   (interactive (list (read-number "Enter a new multiplier: " wmm-multiplier)))
   (setq wmm-multiplier new-multiplier)
   (message "%d" wmm-multiplier))
@@ -60,8 +60,8 @@ functions. Default value is 3. Recommended values are 1-5."
 
 ;; Determines whether default keys are toggled on/off
 (defcustom wmm-default-keys-on t
-  "This variable tracks the state of the default keybindings, and
-is used in `wmm-toggle-default-keys'. DO NOT modify the value of
+  "This variable tracks the state of the default keybindings.
+It is used in `wmm-toggle-default-keys'.  DO NOT modify the value of
 this variable."
   :type 'boolean)
 
@@ -139,15 +139,14 @@ this variable."
     
     map)
   (make-sparse-keymap))
-  "The `window-manage-mode' keymap. Set wmm-require-ace-window to t to
-  enable ace-window keybinds. Use (describe-function
-  'window-manage-mode) to see keybinds.")
+  "This is the default keymap used for `window-manage-mode'.
+Set wmm-require-ace-window to t to enable ace-window keybinds.")
 
 (defun window-manage-mode-on()
+  "Helps enable `local-window-manage-mode' in every buffer.
+Do not use."
   (unless (minibufferp)
-    (local-window-manage-mode))
-  "Function used to help enable `local-window-manage-mode' in
-  every buffer.")
+    (local-window-manage-mode)))
 
 (define-minor-mode local-window-manage-mode
   "DO NOT USE! Use `window-manage-mode' instead"
