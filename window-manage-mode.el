@@ -1,5 +1,5 @@
 ;;; window-manage-mode.el --- Manage and navigate through windows easily
-;; Copyright (C) 2017 Colton Powell
+;; Copyright (C) 2018 Colton Powell
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -119,6 +119,7 @@ this variable."
     ;; ========== Other Window Functions ==========
     ;; Enable easier window swap key
     (define-key map (kbd "o") 'other-window)
+    (define-key map (kbd "p") 'back-window)
 
     ;; Delete current window
     (define-key map (kbd "0") 'delete-window)
